@@ -2,6 +2,43 @@
 
 hi bro sup with you
 
+Use `sudo su -` to gain access to the root
+
+Then install each of:
+
+```
+sudo yum install wget -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo yum install java-11-openjdk-devel -y
+```
+
+open the bash profile
+vi .bash_profile
+
+paste the below in the bash profile
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac))))) 
+export PATH=$PATH:$JAVA_HOME/bin 
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+
+reload the bash profile
+source ~/.bash_profile
+
+Use `exit` to logout from the root user
+
+Now install Jenkins 
+
+```
+sudo yum install jenkins
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+sudo systemctl daemon-reload
+```
+
 Dependences to be installed
 ====================================
 
@@ -21,9 +58,9 @@ open the bash profile
 vi .bash_profile
 
 paste the below in the bash profile
-export JAVA_HOME=$(dirname 
-(readlink 
-(which javac))))) export PATH=$PATH:$JAVA_HOME/bin export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac))))) 
+export PATH=$PATH:$JAVA_HOME/bin 
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 
 reload the bash profile
 source ~/.bash_profile
