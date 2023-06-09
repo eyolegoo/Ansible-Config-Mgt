@@ -1,5 +1,6 @@
 ---
 # handlers file for distribution
+
 - name: restart artifactory
   become: yes
   systemd:
