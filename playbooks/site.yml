@@ -7,9 +7,13 @@
 #  - name: database assignment
 #    import_playbook: ../static-assignments/database.yml
 
-- hosts: todo
-- name: Deploy the todo application
-  ansible.builtin.import_playbook: ../static-assignments/deployment.yml   
+# - hosts: todo
+# - name: Deploy the todo application
+#   ansible.builtin.import_playbook: ../static-assignments/deployment.yml   
+
+- hosts: sonar
+- name: sonar assignment
+  ansible.builtin.import_playbook: ../static-assignments/sonar.yml 
 
 #  - hosts: artifactory
 #  - name: artifactory assignment
