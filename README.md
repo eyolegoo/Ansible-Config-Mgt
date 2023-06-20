@@ -263,3 +263,14 @@ stage ('Upload Artifact to Artifactory') {
 stage ('Deploy to Dev Environment') { steps { build job: 'ansible-config/main', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'dev']], propagate: false, wait: true } }
 
 } }
+
+
+## ======SonarQube Scanner Property====
+sonar.host.url=http://35.169.140.129:9000
+sonar.projectKey=php-todo
+#----- Default source code encoding
+sonar.sourceEncoding=UTF-8
+sonar.php.exclusions=**/vendor/**
+sonar.php.coverage.reportPaths=build/logs/clover.xml
+sonar.php.tests.reportPath=build/logs/junit.xml
+sonar.sources=/var/lib/jenkins/workspace/php-todo_main
