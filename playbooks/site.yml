@@ -11,9 +11,13 @@
 # - name: Deploy the todo application
 #   ansible.builtin.import_playbook: ../static-assignments/deployment.yml   
 
-- hosts: sonar
-- name: sonar assignment
-  ansible.builtin.import_playbook: ../static-assignments/sonar.yml 
+# - hosts: sonar
+# - name: sonar assignment
+#   ansible.builtin.import_playbook: ../static-assignments/sonar.yml
+
+- hosts: wireshark
+- name: wireshark assignment
+  ansible.builtin.import_playbook: ../static-assignments/wireshark.yml  
 
 #  - hosts: artifactory
 #  - name: artifactory assignment

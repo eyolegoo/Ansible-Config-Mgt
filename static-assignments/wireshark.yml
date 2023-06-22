@@ -1,7 +1,5 @@
 ---
-- hosts: webservers
+- hosts: server
   become: true                                                            
   roles:
-     - webserver
-     
-     
+     - wireshark
